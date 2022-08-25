@@ -56,7 +56,7 @@ const getMovie = (id: string | string[]) => {
           label-style="font-size: 1.1em"
         />
         <div v-if="!Loading" class="row">
-          <div class="col-12 col-md-4 col-lg-2">
+          <div class="col-12 col-md-4 col-lg-3">
             <q-img :src="Movie?.image" style="width: 100%">
               <div class="absolute-bottom-right text-h6">
                 <q-icon size="sm" name="star" /> {{ Movie?.imDbRating }}/10.0
@@ -64,7 +64,7 @@ const getMovie = (id: string | string[]) => {
             </q-img>
             <q-separator style="margin-bottom: 20px" />
           </div>
-          <div class="col-12 col-md-8 col-lg-10">
+          <div class="col-12 col-md-8 col-lg-9">
             <q-list>
               <q-item>
                 <q-item-section>
