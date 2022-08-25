@@ -3,7 +3,7 @@
     <q-layout view="hHh lpR fFf">
       <q-header elevated class="bg-primary text-white" height-hint="98">
         <q-toolbar>
-          <q-toolbar-title> Para assistir </q-toolbar-title>
+          <q-toolbar-title> Lista de Filmes/Séries </q-toolbar-title>
         </q-toolbar>
       </q-header>
 
