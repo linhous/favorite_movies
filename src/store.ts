@@ -1,15 +1,17 @@
 import { ILMovie } from "./interfaces/MovieList";
 import { ref } from "vue";
-import { ITitle } from "./interfaces/Title";
+import { IMovie, IMovieDetails } from "./interfaces/Movie";
 import store from "store2";
 import { useQuasar } from "quasar";
 
 const useStore = () => {
-  const storageList = store.has("movielist") ? store("movielist") : [];
+  let storageList = store.has("movielist") ? store("movielist") : [];
+  let searchList = store.has("searchlist") ? store("searchlist") : [];
+  let searchTerm = store.has("searchterm") ? store("searchterm") : "";
   const list = ref<ILMovie[]>(storageList);
   const $q = useQuasar();
 
-  const add = (payload: ITitle) => {
+  const add = (payload: IMovie | IMovieDetails) => {
     const exist = list.value.filter((mv) => mv.id === payload.id).length > 0;
 
     if (!exist) {
@@ -53,12 +55,26 @@ const useStore = () => {
     });
   };
 
+  const updateSearchTerm = (payload: string) => {
+    searchTerm = payload;
+    store("searchterm", searchTerm);
+  };
+
+  const updateSearchList = (payload: IMovie[]) => {
+    searchList = payload;
+    store("searchlist", searchList);
+  };
+
   return {
     list: list.value,
+    searchList: searchList,
+    searchTerm: searchTerm,
     set: {
       add,
       toggle,
       remove,
+      updateSearchTerm,
+      updateSearchList,
     },
     get: {
       seen: () => list.value.filter((mv) => mv.seen),

@@ -1,21 +1,27 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { ITitles } from "../interfaces/Title";
+import { IMovies, IMovie } from "../interfaces/Movie";
 import useStore from "../store";
 import CardMovie from "../components/CardMovie.vue";
 
 const store = useStore();
-const SearchText = ref<string>("");
+const SearchText = ref<string>(store.searchTerm);
 const Loading = ref<boolean>(false);
-const Lista = ref<ITitles>();
+const Lista = ref<IMovie[]>(store.searchList);
 
 const searchTitles = () => {
   if (SearchText.value) {
-    Lista.value = undefined;
+    Lista.value = [];
     Loading.value = true;
-    fetch(`https://imdb-api.com/en/API/Search/k_00ozclmc/${SearchText.value}`)
+    fetch(
+      `https://imdb-api.com/pt-BR/API/Search/k_00ozclmc/${SearchText.value}`
+    )
       .then((res) => res.json())
-      .then((res) => (Lista.value = res))
+      .then((res) => {
+        Lista.value = res.results;
+        store.set.updateSearchTerm(SearchText.value);
+        store.set.updateSearchList(Lista.value);
+      })
       .finally(() => (Loading.value = false));
   }
 };
@@ -49,8 +55,8 @@ const searchTitles = () => {
         label="Pesquisando..."
         label-style="font-size: 1.1em"
       />
-      <div v-for="title in Lista?.results" class="col-12 col-md-6 col-lg-4">
-        <CardMovie :store="store" :title="title" />
+      <div v-for="movie in Lista!" class="col-12 col-md-6 col-lg-4">
+        <CardMovie :store="store" :movie="movie" />
       </div>
     </div>
   </div>

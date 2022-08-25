@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ITitle } from "../interfaces/Title";
+import { IMovie } from "../interfaces/Movie";
 import { IStoreMovies, ILMovie } from "../interfaces/MovieList";
 
 defineProps<{
   store: IStoreMovies;
-  title?: ITitle;
+  movie?: IMovie;
   inHome?: boolean;
   homeMovie?: ILMovie;
 }>();
@@ -39,8 +39,14 @@ defineProps<{
         >
           <q-tooltip> Apagar título </q-tooltip>
         </q-btn>
-        <q-btn flat round color="primary" icon="info">
-          <q-tooltip> Ver Detalhes - Em breve </q-tooltip>
+        <q-btn
+          flat
+          :to="`/details/${homeMovie?.id}`"
+          round
+          color="primary"
+          icon="info"
+        >
+          <q-tooltip> Ver Detalhes </q-tooltip>
         </q-btn>
       </q-card-actions>
     </q-card-section>
@@ -48,8 +54,8 @@ defineProps<{
 
   <q-card v-else flat bordered>
     <q-card-section horizontal>
-      <q-img class="col" :src="title?.image" :ratio="16 / 9">
-        <div class="absolute-bottom text-h6">{{ title?.title }}</div>
+      <q-img class="col" :src="movie!.image" :ratio="16 / 9">
+        <div class="absolute-bottom text-h6">{{ movie!.title }}</div>
       </q-img>
 
       <q-card-actions vertical class="justify-around q-px-md">
@@ -58,12 +64,18 @@ defineProps<{
           round
           color="red"
           icon="favorite"
-          v-on:click="() => store.set.add(title!)"
+          v-on:click="() => store.set.add(movie!)"
         >
           <q-tooltip> Adicionar aos favoritos </q-tooltip>
         </q-btn>
-        <q-btn flat round color="primary" icon="info">
-          <q-tooltip> Ver Detalhes - Em breve </q-tooltip>
+        <q-btn
+          flat
+          round
+          color="primary"
+          icon="info"
+          :to="`/details/${movie!.id}`"
+        >
+          <q-tooltip> Ver Detalhes </q-tooltip>
         </q-btn>
       </q-card-actions>
     </q-card-section>

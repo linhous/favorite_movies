@@ -1,4 +1,4 @@
-import { ITitle } from "./Title";
+import { IMovie } from "./Movie";
 
 export interface ILMovie {
   id: string;
@@ -17,7 +17,7 @@ export interface IStoreMovies {
     seen: boolean;
   }[];
   set: {
-    add: (payload: ITitle) => void;
+    add: (payload: IMovie) => void;
     toggle: (id: string) => void;
     remove: (id: string) => void;
   };
