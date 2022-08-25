@@ -117,7 +117,6 @@ const getMovie = (id: string | string[]) => {
                     </div>
                   </q-scroll-area>
                 </q-item-section>
-                <q-separator spaced inset />
               </q-item>
               <q-item v-if="Movie?.similars.length">
                 <q-item-section>
@@ -157,7 +156,7 @@ const getMovie = (id: string | string[]) => {
 }
 
 .list-img {
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
 .img-actor {
