@@ -14,7 +14,7 @@ const searchTitles = () => {
     Lista.value = [];
     Loading.value = true;
     fetch(
-      `https://imdb-api.com/pt-BR/API/Search/k_00ozclmc/${SearchText.value}`
+      `https://imdb-api.com/pt-BR/API/Search/#SUACHAVEAQUI/${SearchText.value}`
     )
       .then((res) => res.json())
       .then((res) => {

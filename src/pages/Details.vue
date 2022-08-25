@@ -16,7 +16,7 @@ onMounted(() => {
 const getMovie = (id: string | string[]) => {
   Loading.value = true;
 
-  fetch(`https://imdb-api.com/pt-BR/API/Title/k_00ozclmc/${id}`)
+  fetch(`https://imdb-api.com/pt-BR/API/Title/#SUACHAVEAQUI/${id}`)
     .then((res) => res.json())
     .then((res) => (Movie.value = res))
     .finally(() => (Loading.value = false));

@@ -1,16 +1,67 @@
-# Vue 3 + TypeScript + Vite
+# Lista de Filmes/Séries
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[![vite](https://img.shields.io/badge/Vite-AC4AFE?style=for-the-badge&logo=vite&logoColor=ffffff)](https://vitejs.dev/) [![vuejs](https://img.shields.io/badge/Vue-33A070?style=for-the-badge&logo=vue.js&logoColor=61DAFB)](https://vuejs.org/) [![quasar](https://img.shields.io/badge/quasar-3AB4FF?style=for-the-badge&logo=quasar&logoColor=white)](https://capacitorjs.com/)
 
-## Recommended IDE Setup
+Uma lista de filmes e séries favoritas, pesquise através da API do IMDB e veja os resultados que você pode adicionar para lembrar de assistir mais tarde.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+## 🎬 <a href="https://movielist.foxtag.com.br" target="_blank">Ver a Desmonstração</a>
 
-## Type Support For `.vue` Imports in TS
+ <p align="center">
+  <a src="https://movielist.foxtag.com.br" target="_blank"><img height="600px" width="auto" src="./src/assets/movie_list.png" width="100%" height="auto" /></a>
+</p>
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+## ❓ Intuito do projeto
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+Eu montei esse projeto apenas para estudar e manter ativo no portfólio, espero que assim como os muitos projetos que ja encontrei aqui me ajudaram, esse projeto possa ajudar você também :)
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+## ⚠️ Aviso
+
+O Projeto ainda não está concluído, está em fase de desenvolvimento por se tratar de um projeto para estudo.
+
+## ⚙️ Funcionalidades
+
+- [x] Tela Inicial
+
+  - [x] Listagem dos títulos para assistir
+  - [x] Listagem dos títulos já assistidos
+  - [x] Alternar status entre títulos para assistir e assistidos
+  - [x] Apagar títulos
+  - [x] Visualizar detalhes do título
+  - [ ] Ordenar itens da lista para assistir
+
+- [x] Tela de pesquisa
+
+  - [x] Pesquisar títulos pela API do IMDB
+  - [x] Listar os títulos disponíveis
+  - [x] Adicionar título na lista
+  - [x] Armazenar a última consulta como histórico
+
+- [x] Tela de detalhes
+  - [x] Visualizar informações detalhadas do título
+  - [x] Visualizar títulos semelhantes
+  - [x] Visualizar atores do título
+  - [x] Adicionar título na lista
+
+---
+
+## 🚀 Vamos começar?
+
+Caso deseje testar este projeto, siga os passos abaixo!
+
+```bash
+
+# Primeiro clone este repositório
+  $  git clone https://github.com/linhous/favorite_movies.git
+
+# Entre na pasta do projeto
+  $  cd favorite_movies
+
+# Execute o yarn para instalar as dependências
+  $  yarn
+
+# Agora iniciei o server para testar em modo web
+  $  yarn dev
+
+# Não esqueça de informar a chave para consulta da API no IMDB
+# O registro é grátis com uma limitação de requisições diárias
+```
