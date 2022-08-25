@@ -26,11 +26,13 @@ const useStore = () => {
       $q.notify({
         type: "positive",
         message: "Título adicionado com sucesso!",
+        position: "top",
       });
     } else {
       $q.notify({
         type: "negative",
         message: "Esse título já está em sua lista de favoritos!",
+        position: "top",
       });
     }
   };
@@ -43,6 +45,7 @@ const useStore = () => {
     $q.notify({
       type: "positive",
       message: "Status alterado com sucesso!",
+      position: "top",
     });
   };
 
@@ -52,6 +55,7 @@ const useStore = () => {
     $q.notify({
       type: "positive",
       message: "Título apagado   com sucesso!",
+      position: "top",
     });
   };
 
